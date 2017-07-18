@@ -76,34 +76,7 @@ Parts of the CamOdoCal library are based on the following papers:
 Build Instructions for Ubuntu
 -----------------------------
 
-*Required dependencies*
-* BLAS (Ubuntu package: libblas-dev)
-* Boost >= 1.4.0 (Ubuntu package: libboost-all-dev)
-* CUDA >= 4.2
-* Eigen3 (Ubuntu package: libeigen3-dev)
-* glog
-* OpenCV >= 2.4.6
-* SuiteSparse >= 4.2.1
-
-*Optional dependencies*
-* GTest
-* OpenMP
-
-1. Before you compile the repository code, you need to install the required
-   dependencies, and install the optional dependencies if required.
-   Download the SuiteSparse libraries from this [link] [1] and
-   do not use the Ubuntu package since the SuiteSparseQR library is
-   missing in the Ubuntu package and is required for covariance evaluation.
-
-2. Build the code.
-
-        mkdir build
-        cd build
-        cmake -DCMAKE_BUILD_TYPE=Release ..
-
-3. If you wish to generate Eclipse project files, run:
-
-        cmake -DCMAKE_BUILD_TYPE=Release -G"Eclipse CDT4 - Unix Makefiles" ..
+```docker build -t camodocal -f Dockerfile .```
 
 Examples
 --------
