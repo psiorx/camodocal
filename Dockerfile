@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && \
     apt-get install -y --force-yes build-essential cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev \
-                    libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev \
+                    libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev liblapacke-dev checkinstall \
                     python3-dev python3-tk python3-numpy curl libblas-dev libopenblas-dev libboost-all-dev libeigen3-dev libgoogle-glog-dev openssl && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* \
@@ -14,8 +14,8 @@ RUN apt-get update && \
 
 RUN mkdir ~/opencv
 
-RUN cd ~/opencv && git clone https://github.com/Itseez/opencv_contrib.git && cd opencv_contrib && git checkout 3.0.0
-RUN cd ~/opencv && git clone https://github.com/Itseez/opencv.git && cd opencv && git checkout 3.0.0
+RUN cd ~/opencv && git clone https://github.com/Itseez/opencv_contrib.git && cd opencv_contrib && git checkout 3.2.0
+RUN cd ~/opencv && git clone https://github.com/Itseez/opencv.git && cd opencv && git checkout 3.2.0
 
 RUN cd ~/opencv/opencv && mkdir release && cd release && \
           cmake -D CMAKE_BUILD_TYPE=RELEASE \
